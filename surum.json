@@ -1,0 +1,7 @@
+{
+ "surum": "1.0.0",
+ "tarih": "2026-10-22",
+ "enAzKabuk": "1.0.0",
+ "notlar": ["İlk masaüstü sürümü"],
+ "dosyalar": [{"yol": "teklif-programi.html", "url": "teklif-programi.html", "sha256": "bbf4a2cc6e02f14e0301a7afa15033103014c3b383f903b5bae042d50764dd3f"}]
+}
