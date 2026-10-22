@@ -1,16 +1,15 @@
 {
- "surum": "1.0.1",
+ "surum": "1.0.2",
  "tarih": "2026-10-22",
  "enAzKabuk": "1.0.0",
  "notlar": [
-  "Alt bilgide Fabrika başlığı sadeleşti; fabrika telefonu, banka ve IBAN kaldırıldı",
-  "Teklif belgesinden örnek ödeme planı kaldırıldı"
+  "Yeni altın A logosu: program, teklif ve sözleşme belgelerinde"
  ],
  "dosyalar": [
   {
    "yol": "teklif-programi.html",
-   "url": "https://raw.githubusercontent.com/omeraltntass/altintas-teklif/53bd640adbdf44f97d501666487b661d7ca63e28/teklif-programi.html",
-   "sha256": "1c3710febcf198b054a14dfb28b4e3b9510a7ff4e83cff80a1abad5890374ae2"
+   "url": "https://raw.githubusercontent.com/omeraltntass/altintas-teklif/c0c25461b10894c95eb97e07d53a10b4f0c9ff36/teklif-programi.html",
+   "sha256": "bee32c7aab02affa29fcfe414d2dc25d67944f61ca4a94318784116d91f775f0"
   }
  ]
 }
