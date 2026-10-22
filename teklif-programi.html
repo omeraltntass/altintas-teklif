@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' data: blob:"><script src="masaustu.js"></script></head><body>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' data: blob:"><script src="masaustu.js"></script></head><body><div id="surum-isaret" hidden>1.0.1</div>
 <title>Altıntaş Teklif</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="fonts/fonts.css">
@@ -812,16 +812,6 @@ async function makePdf(kind){
   const name = (kind === "sozlesme" ? t.sozlesme.no + " Sozlesme " : t.no + " Rev" + t.rev + " Teklif ") + (t.musteri.ad || "") ;
   const filename = name.trim().replace(/[\\/:*?"<>|]+/g, "") + ".pdf";
   toast("PDF hazırlanıyor…");
-  if (window.altintasMasaustu){
-    try {
-      const clone = el.cloneNode(true); const inFoot = clone.querySelector(":scope > .d-foot"); if (inFoot) inFoot.remove();
-      const css = [...document.querySelectorAll("style")].map(s => s.textContent).join("\n");
-      const footCss = css.split("\n").filter(l => l.startsWith(".d-foot")).join("\n");
-      const r = await window.altintasMasaustu.pdf({filename, css, footCss, body:clone.outerHTML, foot:firmaFoot(S.ayar.firma, "pdf"), belge:el.dataset.runhead || ""});
-      toast(r === "saved" ? "PDF kaydedildi" : "İndirme iptal edildi");
-    } catch(e){ toast("PDF oluşturulamadı"); }
-    return;
-  }
   const holders = [];
   const offscreen = (node) => { const h = document.createElement("div"); h.style.cssText = "position:fixed;left:-10000px;top:0;width:703px;background:#fff"; h.appendChild(node); document.body.appendChild(h); holders.push(h); return node; };
   const raster = async (root) => { for (const img of root.querySelectorAll("img")) { if (img.src.startsWith("data:image/svg")) img.src = await svgToPng(img.src, 240); } };

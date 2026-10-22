@@ -1,7 +1,15 @@
 {
- "surum": "1.0.0",
- "tarih": "2026-10-22",
+ "surum": "1.0.1",
+ "tarih": "2026-10-21",
  "enAzKabuk": "1.0.0",
- "notlar": ["İlk masaüstü sürümü"],
- "dosyalar": [{"yol": "teklif-programi.html", "url": "teklif-programi.html", "sha256": "bbf4a2cc6e02f14e0301a7afa15033103014c3b383f903b5bae042d50764dd3f"}]
+ "notlar": [
+  "Test güncellemesi 1.0.1"
+ ],
+ "dosyalar": [
+  {
+   "yol": "teklif-programi.html",
+   "url": "teklif-programi.html",
+   "sha256": "3cc9e0bd8a363d58f0a4081afbea13e95944d07b3a58d435db3ca616819e46a1"
+  }
+ ]
 }
