@@ -8,17 +8,17 @@
 /* Layout: koyu petrol kenar çubuğu + çalışma alanı; editörde ana sütun ve yapışkan fiyat paneli; belge her zaman beyaz A4 */
 :root{
   --bg:#f5f6f7; --surface:#ffffff; --sunken:#f9fafb; --ink:#1c232b; --muted:#5f6873; --line:#e2e5e9;
-  --brand:#1c2733; --brand-ink:#eef1f4; --accent:#2e4a66; --accent-soft:#edf1f5; --gold:#9c7c4c; --gold-soft:#f4efe6;
+  --brand:#1c2733; --brand-ink:#eef1f4; --accent:#2e4a66; --accent-soft:#edf1f5; --gold:#b08326; --gold-soft:#f6efe0;
   --ok:#2c7a4b; --warn:#b06d12; --bad:#b23b31; --info:#2d5f8f;
-  --f-ui:"Source Sans 3","Segoe UI",system-ui,sans-serif; --f-head:"Montserrat",system-ui,sans-serif; --f-logo:"Montserrat",system-ui,sans-serif; --w-head:600; --w-logo:600;
+  --f-ui:"Source Sans 3","Segoe UI",system-ui,sans-serif; --f-head:"Montserrat",system-ui,sans-serif; --f-logo:"Montserrat",system-ui,sans-serif; --w-head:600; --w-logo:700;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#111418; --surface:#1a1f25; --sunken:#15191e; --ink:#e4e7eb; --muted:#9aa3ad; --line:#2b323a;
-  --brand:#0d1014; --brand-ink:#e4e7eb; --accent:#9db7d1; --accent-soft:#1f2933; --gold:#c9a76f; --gold-soft:#2a241a;
+  --brand:#0d1014; --brand-ink:#e4e7eb; --accent:#9db7d1; --accent-soft:#1f2933; --gold:#d9ab47; --gold-soft:#2a241a;
   --ok:#69c290; --warn:#e3a24a; --bad:#ee7d72; --info:#83b3e6; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#111418; --surface:#1a1f25; --sunken:#15191e; --ink:#e4e7eb; --muted:#9aa3ad; --line:#2b323a;
-  --brand:#0d1014; --brand-ink:#e4e7eb; --accent:#9db7d1; --accent-soft:#1f2933; --gold:#c9a76f; --gold-soft:#2a241a;
+  --brand:#0d1014; --brand-ink:#e4e7eb; --accent:#9db7d1; --accent-soft:#1f2933; --gold:#d9ab47; --gold-soft:#2a241a;
   --ok:#69c290; --warn:#e3a24a; --bad:#ee7d72; --info:#83b3e6; color-scheme:dark}
 
 *{box-sizing:border-box}
@@ -41,7 +41,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .brandlogo{display:flex;align-items:center;gap:10px}
 .brandlogo img{width:40px;height:40px;flex:none}
 .brandlogo .w{display:grid;line-height:1}
-.brandlogo .w b{font:var(--w-logo) 19px var(--f-logo);letter-spacing:.16em}
+.brandlogo .w b{font:var(--w-logo) 19px var(--f-logo);letter-spacing:.12em}
 .brandlogo .w i{font:700 8.5px var(--f-ui);font-style:normal;letter-spacing:.42em;color:var(--gold);margin-top:5px}
 
 .top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:18px}
@@ -184,13 +184,13 @@ code.ph{font-size:11.5px;background:var(--sunken);border:1px solid var(--line);b
 .d-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
 .d-head .brandlogo img{width:58px;height:58px}
 .d-head .brandlogo .w b{font-size:27px;color:#1c2733}
-.d-head .brandlogo .w i{font-size:10px;color:#9c7c4c}
+.d-head .brandlogo .w i{font-size:10px;color:#b08326}
 .d-type{text-align:right}
 .d-type .t{font:var(--w-head) 30px/1 var(--f-head);letter-spacing:.14em;color:#1c2733}
 .d-type dl{display:grid;grid-template-columns:auto auto;gap:2px 14px;margin:12px 0 0;font-size:11px;justify-content:end}
 .d-type dt{color:#6b7480;text-align:right}
 .d-type dd{margin:0;font-weight:700;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.d-rule{height:2px;background:linear-gradient(90deg,#9c7c4c 0 64px,#1c2733 64px);margin:22px 0 22px}
+.d-rule{height:2px;background:linear-gradient(90deg,#b08326 0 64px,#1c2733 64px);margin:22px 0 22px}
 .d-parties{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .d-parties small{display:block;font-size:9.5px;font-weight:800;letter-spacing:.16em;color:#6b7480;margin-bottom:4px}
 .d-parties b{display:block;font-size:14px;color:#1c2733}
@@ -229,7 +229,7 @@ code.ph{font-size:11.5px;background:var(--sunken);border:1px solid var(--line);b
 .d-contact b{color:#6b7480;font-weight:800;font-size:8.5px;letter-spacing:.12em;margin-right:4px}
 .d-slogan{font-size:10px;color:#6b7480;letter-spacing:.04em;margin-top:6px}
 .d-foot{margin-top:36px;border-top:2px solid #1c2733;position:relative;padding-top:12px;display:grid;gap:10px}
-.d-foot::before{content:"";position:absolute;left:0;top:-2px;width:64px;height:2px;background:#9c7c4c}
+.d-foot::before{content:"";position:absolute;left:0;top:-2px;width:64px;height:2px;background:#b08326}
 .d-foot .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px 22px}
 .d-foot .col{display:grid;gap:1px;align-content:start;font-size:9.5px;color:#3a434d;line-height:1.45}
 .d-foot .col small{font-size:8px;font-weight:800;letter-spacing:.16em;color:#6b7480;margin-bottom:2px}
@@ -238,7 +238,7 @@ code.ph{font-size:11.5px;background:var(--sunken);border:1px solid var(--line);b
 .d-runhead{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #dde1e5;padding-bottom:6px;font-size:9.5px;color:#6b7480}
 .d-runhead .brandlogo img{width:26px;height:26px}
 .d-runhead .brandlogo .w b{font-size:13px;color:#1c2733}
-.d-runhead .brandlogo .w i{font-size:6px;margin-top:3px;color:#9c7c4c}
+.d-runhead .brandlogo .w i{font-size:6px;margin-top:3px;color:#b08326}
 .hfprev{background:#fff;border:1px solid var(--line);border-radius:10px;overflow-x:auto;padding:16px}
 .hfprev .doc{box-shadow:none;padding:24px 28px;width:760px}
 .d-title{text-align:center;margin:6px 0 4px}
@@ -247,7 +247,7 @@ code.ph{font-size:11.5px;background:var(--sunken);border:1px solid var(--line);b
 .d-cl h4{margin:0 0 4px;font-size:11.5px;font-weight:800;color:#1c2733;letter-spacing:.04em}
 .d-cl p{margin:0;color:#343d47;text-align:justify}
 .d-ek{margin-top:30px}
-.d-ek > h3{font:var(--w-head) 17px var(--f-head);letter-spacing:.06em;color:#1c2733;margin:0 0 4px;border-bottom:2px solid #9c7c4c;padding-bottom:6px}
+.d-ek > h3{font:var(--w-head) 17px var(--f-head);letter-spacing:.06em;color:#1c2733;margin:0 0 4px;border-bottom:2px solid #b08326;padding-bottom:6px}
 .d-pay{width:100%;border-collapse:collapse;margin-top:8px;font-variant-numeric:tabular-nums}
 .d-pay th{text-align:left;font-size:9.5px;letter-spacing:.12em;color:#6b7480;border-bottom:1px solid #1c2733;padding:6px 4px}
 .d-pay td{padding:7px 4px;border-bottom:1px dotted #dde1e5}
@@ -309,10 +309,11 @@ function yaziyla(amount){
 
 /* ---------- logo ---------- */
 function markSVG(ink, gold){
-  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M15 55V31A17 17 0 0 1 27.4 14.6M36.6 14.6A17 17 0 0 1 49 31v24" fill="none" stroke="'+ink+'" stroke-width="5"/><path d="M23.5 55V34a8.5 8.5 0 0 1 17 0v21" fill="none" stroke="'+ink+'" stroke-width="1.6"/><path d="M25.8 9h12.4l-2.3 10.6h-7.8z" fill="'+gold+'"/><path d="M9 57.5h46" stroke="'+ink+'" stroke-width="2.4"/><path d="M11 55h8M45 55h8" stroke="'+ink+'" stroke-width="1.2"/></svg>';
+  // Altın A işareti: iki yüzlü bacaklar ve kesen kavis
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="m1" x1="0" y1="0" x2="0.6" y2="1"><stop offset="0" stop-color="#fbe7a6"/><stop offset=".5" stop-color="#e2b552"/><stop offset="1" stop-color="#b8862d"/></linearGradient><linearGradient id="m2" x1="0" y1="0" x2="0.6" y2="1"><stop offset="0" stop-color="#c9973a"/><stop offset=".6" stop-color="#9c6d22"/><stop offset="1" stop-color="#7a5418"/></linearGradient><linearGradient id="m3" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#a87726"/><stop offset=".45" stop-color="#f8e0a0"/><stop offset="1" stop-color="#d1a03f"/></linearGradient><linearGradient id="m4" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#7a5418"/><stop offset=".5" stop-color="#b8862d"/><stop offset="1" stop-color="#8f6420"/></linearGradient></defs><path d="M32 5L6 58h4.5L32 14z" fill="url(#m1)"/><path d="M32 14L10.5 58H15L32 23z" fill="url(#m2)"/><path d="M32 5l12.75 26-3.55 1.8L32 14z" fill="url(#m1)"/><path d="M32 14l9.2 18.8-3.6 1.8L32 23z" fill="url(#m2)"/><path d="M48.7 39L58 58h-4.5l-8.4-17.25z" fill="url(#m2)"/><path d="M45.1 40.75L53.5 58H49l-7.5-15.5z" fill="url(#m1)"/><path d="M12.5 57.5Q29 33.5 62 29Q35 44 12.5 57.5z" fill="url(#m4)"/><path d="M12.5 57.5Q29 33.5 62 29Q33 41 12.5 57.5z" fill="url(#m3)"/></svg>';
 }
 const markURI = (ink, gold) => "data:image/svg+xml;charset=utf-8," + encodeURIComponent(markSVG(ink, gold));
-const MARK_DOC = markURI("#1c2733", "#9c7c4c");
+const MARK_DOC = markURI("#1c2733", "#b08326");
 function logoHTML(onDark){
   const src = onDark ? markURI("#eef1f4", "#c9a76f") : MARK_DOC;
   return '<div class="brandlogo"><img src="'+src+'" alt=""><div class="w"><b>ALTINTAŞ</b><i>DEKORASYON</i></div></div>';
@@ -764,7 +765,7 @@ function viewSettings(){
   const f = S.ayar.firma, a = S.ayar.teklif;
   const sf = (k, label, ph) => fld(label, '<input type="text" data-s="firma.'+k+'" value="'+esc(f[k])+'"'+(ph?' placeholder="'+esc(ph)+'"':"")+'>');
   let h = '<div class="top"><div class="grow"><h1>Firma ve şablonlar</h1><div class="sub">Bu bilgiler bir kez girilir; tüm teklif ve sözleşmelerde kullanılır.</div></div></div><div class="ed-main">';
-  h += '<section class="card"><h2>Logo</h2><div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center"><div style="background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 22px">'+logoHTML(false).replace('class="brandlogo"','class="brandlogo" style="color:#1c2733"')+'</div><div class="sub" style="max-width:420px">Kemer, iç mekânı ve ustalığı; tepesindeki altın kilit taşı "Altıntaş" adını anlatır. Kilit taşı kemeri ayakta tutan taştır.</div></div></section>';
+  h += '<section class="card"><h2>Logo</h2><div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center"><div style="background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 22px">'+logoHTML(false).replace('class="brandlogo"','class="brandlogo" style="color:#1c2733"')+'</div><div class="sub" style="max-width:420px">Altın "A", Altıntaş’ın baş harfidir; onu kesen kavis tasarımın ve ustalığın imzasıdır.</div></div></section>';
   h += '<section class="card"><h2>Firma <small>Belgelerde ve sözleşmede kullanılır</small></h2><div class="grid">'+sf("ad","Firma adı (kısa)")+sf("unvan","Resmi unvan","Fatura ve sözleşmedeki tam unvan")+sf("slogan","Logo altı satırı","Boş bırakılabilir")+sf("yetkili","Yetkili (imza atan)")+sf("vergiDairesi","Vergi dairesi")+sf("vergiNo","Vergi / T.C. no")+sf("mahkeme","Yetkili mahkeme (şehir)","Örn. Ankara")+sf("garanti","İşçilik garantisi süresi")+'</div></section>';
   h += '<section class="card"><h2>Adresler ve iletişim <small>Boş bırakılan alanlar belgede görünmez</small></h2><div class="grid">'+sf("showroomAdres","Showroom adresi")+sf("showroomTel","Showroom telefonu")+sf("fabrikaAdres","Fabrika adresi")+sf("gsm","GSM / WhatsApp")+sf("eposta","E-posta")+sf("web","Web sitesi")+sf("instagram","Instagram","@kullaniciadi")+sf("banka","Banka (yalnız sözleşmede)")+sf("iban","IBAN (yalnız sözleşmede)")+'</div></section>';
   h += '<section class="card"><h2>Üst bilgi ve alt bilgi önizlemesi <small>PDF\'te alt bilgi ve sayfa numarası her sayfada tekrarlanır</small></h2><div class="hfprev">'+hfPrev()+'</div></section>';
