@@ -1,7 +1,16 @@
 {
- "surum": "1.0.0",
+ "surum": "1.0.1",
  "tarih": "2026-10-22",
  "enAzKabuk": "1.0.0",
- "notlar": ["İlk masaüstü sürümü"],
- "dosyalar": [{"yol": "teklif-programi.html", "url": "teklif-programi.html", "sha256": "bbf4a2cc6e02f14e0301a7afa15033103014c3b383f903b5bae042d50764dd3f"}]
+ "notlar": [
+  "Alt bilgide Fabrika başlığı sadeleşti; fabrika telefonu, banka ve IBAN kaldırıldı",
+  "Teklif belgesinden örnek ödeme planı kaldırıldı"
+ ],
+ "dosyalar": [
+  {
+   "yol": "teklif-programi.html",
+   "url": "teklif-programi.html",
+   "sha256": "1c3710febcf198b054a14dfb28b4e3b9510a7ff4e83cff80a1abad5890374ae2"
+  }
+ ]
 }

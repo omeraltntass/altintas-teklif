@@ -216,7 +216,7 @@ code.ph{font-size:11.5px;background:var(--sunken);border:1px solid var(--line);b
 .d-sum .g{border-top:1px solid #1c2733;margin-top:6px;padding-top:8px;font-weight:800;font-size:15px;color:#1c2733}
 .d-sum .g span:first-child{color:#1c2733;font-size:11px;letter-spacing:.08em;align-self:center}
 .d-sum .yz{font-size:10.5px;color:#6b7480;font-style:italic;text-align:right}
-.d-cond{margin-top:26px;display:grid;grid-template-columns:1.3fr 1fr;gap:28px}
+.d-cond{margin-top:26px;display:grid;grid-template-columns:1fr;gap:28px}
 .d-cond h4{margin:0 0 6px;font-size:9.5px;font-weight:800;letter-spacing:.16em;color:#6b7480}
 .d-cond ol{margin:0;padding-left:16px;color:#3a434d;display:grid;gap:3px}
 .d-cond table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
@@ -554,11 +554,6 @@ function viewEdit(){
   h += '<section class="card"><h2>Teklif koşulları <small>İşaretli olanlar belgede görünür</small></h2><div class="cond">'
     + t.kosullar.map((k, i) => '<label><input type="checkbox" data-k="kosullar.'+i+'.on" '+(k.on?"checked":"")+'><span class="t">'+esc(k.t)+'</span><button class="icon del" data-act="kdel" data-i="'+i+'" aria-label="Koşulu sil">✕</button></label>').join("")
     + '</div><div class="addsec"><div class="row"><input type="text" id="newkosul" placeholder="Yeni koşul yazın" aria-label="Yeni koşul"><button class="btn" data-act="kadd">Ekle</button></div></div></section>';
-  // ödeme
-  const top = t.odemePlani.reduce((s,o)=>s+num(o.oran),0);
-  h += '<section class="card"><h2>Önerilen ödeme planı <small>'+(t.kdvGoster==="dahil"?"KDV dahil tutar üzerinden":"KDV hariç tutar üzerinden")+'</small></h2><div class="cond">'
-    + t.odemePlani.map((o, i) => '<div class="payrow">'+inp("odemePlani."+i+".oran", o.oran, {n:1, aria:"Oran yüzde"})+inp("odemePlani."+i+".aciklama", o.aciklama, {aria:"Ödeme açıklaması"})+'<span class="amt" data-calc="odeme:'+i+'">'+money(c.odemeBaz*num(o.oran)/100)+'</span><button class="icon del" data-act="odel" data-i="'+i+'" aria-label="Ödemeyi sil">✕</button></div>').join("")
-    + '</div><div class="row" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="btn sm" data-act="oadd">+ Ödeme ekle</button><span data-calc="odemesum" class="'+(Math.abs(top-100)<0.001?"okbox":"badbox")+'">'+(Math.abs(top-100)<0.001?"Toplam %100":"Toplam %"+fmt.format(top)+", %100 olmalı")+'</span></div></section>';
   h += '<div style="display:flex;justify-content:flex-end"><button class="btn danger" data-act="tdel">Bu sürümü sil</button></div>';
   h += '</div>' + asideHTML(t, c) + '</div>';
   return h;
@@ -617,9 +612,9 @@ function karCls(marj){ return marj >= 20 ? "kar-ok" : marj >= 10 ? "kar-low" : "
 function firmaFoot(f, cls){
   const col = (label, lines) => { lines = lines.filter(Boolean); return lines.length ? '<div class="col"><small>'+label+'</small>'+lines.map(l => '<span>'+l+'</span>').join("")+'</div>' : ""; };
   const cols = col("SHOWROOM", [esc(f.showroomAdres), f.showroomTel ? "T. "+esc(f.showroomTel) : ""])
-    + col("FABRİKA / ATÖLYE", [esc(f.fabrikaAdres), f.fabrikaTel ? "T. "+esc(f.fabrikaTel) : ""])
+    + col("FABRİKA", [esc(f.fabrikaAdres)])
     + col("İLETİŞİM", [f.gsm ? "GSM / WhatsApp "+esc(f.gsm) : "", esc(f.eposta), esc(f.web), f.instagram ? "Instagram "+esc(f.instagram) : ""]);
-  const legal = [esc(f.unvan || f.ad), (f.vergiDairesi || f.vergiNo) ? [esc(f.vergiDairesi) ? esc(f.vergiDairesi)+" V.D." : "", esc(f.vergiNo)].filter(Boolean).join(" ") : "", f.iban ? (f.banka ? esc(f.banka)+" · " : "")+"IBAN "+esc(f.iban) : ""].filter(Boolean);
+  const legal = [esc(f.unvan || f.ad), (f.vergiDairesi || f.vergiNo) ? [esc(f.vergiDairesi) ? esc(f.vergiDairesi)+" V.D." : "", esc(f.vergiNo)].filter(Boolean).join(" ") : ""].filter(Boolean);
   return '<div class="d-foot'+(cls ? " "+cls : "")+'">'+(cols ? '<div class="cols">'+cols+'</div>' : "")+'<div class="legal">'+legal.map(x => '<span>'+x+'</span>').join("")+'</div></div>';
 }
 function headContact(f){
@@ -650,7 +645,7 @@ function docTeklif(t){
   if (t.kdvGoster === "dahil"){ h += '<div class="l"><span>Toplam (KDV hariç)</span><span>'+money(c.matrah)+'</span></div><div class="l"><span>KDV %'+num(t.kdvOran)+'</span><span>'+money(c.kdv)+'</span></div>'; }
   h += '<div class="l g"><span>'+(t.kdvGoster==="dahil"?"GENEL TOPLAM":"GENEL TOPLAM (KDV HARİÇ)")+'</span><span>'+money(toplamGoster)+'</span></div><div class="yz">Yalnız '+esc(yaziyla(toplamGoster))+'</div></div>';
   const kos = t.kosullar.filter(k => k.on);
-  h += '<div class="d-cond"><div>'+(kos.length?'<h4>TEKLİF KOŞULLARI</h4><ol>'+kos.map(k => '<li>'+esc(k.t)+'</li>').join("")+'</ol>':"")+'</div><div>'+(t.odemePlani.length?'<h4>ÖNERİLEN ÖDEME PLANI</h4><table>'+t.odemePlani.map(o => '<tr><td>%'+fmt.format(num(o.oran)).replace(",00","")+'</td><td>'+esc(o.aciklama)+'</td><td style="text-align:right">'+money(c.odemeBaz*num(o.oran)/100)+'</td></tr>').join("")+'</table>':"")+'</div></div>';
+  if (kos.length) h += '<div class="d-cond"><div><h4>TEKLİF KOŞULLARI</h4><ol>'+kos.map(k => '<li>'+esc(k.t)+'</li>').join("")+'</ol></div></div>';
   h += firmaFoot(f) + '</div>';
   return h;
 }
@@ -771,7 +766,7 @@ function viewSettings(){
   let h = '<div class="top"><div class="grow"><h1>Firma ve şablonlar</h1><div class="sub">Bu bilgiler bir kez girilir; tüm teklif ve sözleşmelerde kullanılır.</div></div></div><div class="ed-main">';
   h += '<section class="card"><h2>Logo</h2><div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center"><div style="background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 22px">'+logoHTML(false).replace('class="brandlogo"','class="brandlogo" style="color:#1c2733"')+'</div><div class="sub" style="max-width:420px">Kemer, iç mekânı ve ustalığı; tepesindeki altın kilit taşı "Altıntaş" adını anlatır. Kilit taşı kemeri ayakta tutan taştır.</div></div></section>';
   h += '<section class="card"><h2>Firma <small>Belgelerde ve sözleşmede kullanılır</small></h2><div class="grid">'+sf("ad","Firma adı (kısa)")+sf("unvan","Resmi unvan","Fatura ve sözleşmedeki tam unvan")+sf("slogan","Logo altı satırı","Boş bırakılabilir")+sf("yetkili","Yetkili (imza atan)")+sf("vergiDairesi","Vergi dairesi")+sf("vergiNo","Vergi / T.C. no")+sf("mahkeme","Yetkili mahkeme (şehir)","Örn. Ankara")+sf("garanti","İşçilik garantisi süresi")+'</div></section>';
-  h += '<section class="card"><h2>Adresler ve iletişim <small>Boş bırakılan alanlar belgede görünmez</small></h2><div class="grid">'+sf("showroomAdres","Showroom adresi")+sf("showroomTel","Showroom telefonu")+sf("fabrikaAdres","Fabrika / atölye adresi")+sf("fabrikaTel","Fabrika telefonu")+sf("gsm","GSM / WhatsApp")+sf("eposta","E-posta")+sf("web","Web sitesi")+sf("instagram","Instagram","@kullaniciadi")+sf("banka","Banka")+sf("iban","IBAN")+'</div></section>';
+  h += '<section class="card"><h2>Adresler ve iletişim <small>Boş bırakılan alanlar belgede görünmez</small></h2><div class="grid">'+sf("showroomAdres","Showroom adresi")+sf("showroomTel","Showroom telefonu")+sf("fabrikaAdres","Fabrika adresi")+sf("gsm","GSM / WhatsApp")+sf("eposta","E-posta")+sf("web","Web sitesi")+sf("instagram","Instagram","@kullaniciadi")+sf("banka","Banka (yalnız sözleşmede)")+sf("iban","IBAN (yalnız sözleşmede)")+'</div></section>';
   h += '<section class="card"><h2>Üst bilgi ve alt bilgi önizlemesi <small>PDF\'te alt bilgi ve sayfa numarası her sayfada tekrarlanır</small></h2><div class="hfprev">'+hfPrev()+'</div></section>';
   h += '<section class="card"><h2>Yeni teklif varsayılanları</h2><div class="grid">'+fld("Geçerlilik (gün)", '<input type="text" inputmode="decimal" class="num" data-s="teklif.gecerlilik" data-n="1" value="'+esc(a.gecerlilik)+'">')+fld("KDV oranı", '<select data-s="teklif.kdv" data-n="1">'+[0,1,10,20].map(v => '<option value="'+v+'"'+(num(a.kdv)===v?" selected":"")+'>%'+v+'</option>').join("")+'</select>')+'</div>'+fld("Giriş metni", '<textarea data-s="teklif.giris" data-grow rows="2">'+esc(a.giris)+'</textarea>')+fld("Teklif koşulları (her satır bir koşul)", '<textarea data-s="teklif.kosullar" data-grow rows="4">'+esc(a.kosullar)+'</textarea>')+'</section>';
   h += '<section class="card"><h2>Sözleşme maddeleri <small>Madde 1 (Taraflar) otomatik oluşur</small></h2><div class="hint">Metinde süslü parantezli alanlar sözleşmede otomatik dolar. Kendi sözleşme metninizi buraya yazabilirsiniz. Kullanılabilir alanlar: '+PLACEHOLDERS.map(p => '<code class="ph">'+p+'</code>').join(" ")+'</div><div>';
