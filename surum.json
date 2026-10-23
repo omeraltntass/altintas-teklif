@@ -1,21 +1,28 @@
 {
- "surum": "1.0.3",
+ "surum": "1.1.0",
  "tarih": "2026-10-23",
  "enAzKabuk": "1.0.0",
  "notlar": [
-  "Kütüphaneden birden çok madde işaretleyip tek seferde ekleme (Ctrl+Enter)",
-  "Geri al: silinen madde, bölüm, koşul ve teklif bildirimden ya da Ctrl+Z ile geri gelir",
-  "PDF'ten sonra tek tıkla \"Gönderildi\" olarak işaretleme",
-  "Önizlemede göndermeden önce eksik bilgi kontrolü",
-  "Ayar: madde açıklamaları belgede büyük harfle çıkabilir",
-  "Teklif listesinde sıralama, satırdan durum değiştirme, önizleme ve kopyalama",
-  "Örnek teklifleri tek düğmeyle silme; aramada daha akıcı ekran"
+  "Kütüphaneden birden çok madde işaretleyip tek seferde ekleme; Ctrl+Z ile geri al",
+  "Teklif şablonları, bölüm setleri ve müşteri hafızası: yeni teklif birkaç tıkla hazır",
+  "Excel'den yapıştırma, sürükle-bırak, seçenekli madde düzenleyicisi, fiyatsız sade görünüm",
+  "Göndermeden önce eksik bilgi kontrolü; PDF'ten sonra tek tıkla \"Gönderildi\"",
+  "Takip panosu: cevap bekleyen, süresi dolan teklifler ve geciken ödemeler; WhatsApp ile hatırlatma",
+  "Revizyonlar arası fark listesi; fiyatları kütüphaneden güncelleme ve kütüphanede toplu % zam",
+  "Ödeme planı şablonları ve tahsilat takibi; aylık özet ekranı",
+  "Tek teklifi dosya olarak başka bilgisayara taşıma; örnek teklifleri silme",
+  "Masaüstü: PDF'ler müşteri klasörüne kendiliğinden kaydedilir, bozuk veri dosyası yedekten geri yüklenir, son yedek tarihi ekranda (tam paket 1.1.0 ile)"
  ],
  "dosyalar": [
   {
    "yol": "teklif-programi.html",
-   "url": "https://raw.githubusercontent.com/omeraltntass/altintas-teklif/6366ca307f587d9ceeef236e5585c52d26e17480/teklif-programi.html",
-   "sha256": "76144f90309a7cd73acece067aab1c87ce3ce0fe9e760842c7acc61974a303f9"
+   "url": "https://raw.githubusercontent.com/omeraltntass/altintas-teklif/103523d748e03762bea9d9b03159521e791661fd/teklif-programi.html",
+   "sha256": "3e8c1c55bab56349add02623c01acf863ea564e9f8678aeaedede35aee695a1b"
+  },
+  {
+   "yol": "masaustu.js",
+   "url": "https://raw.githubusercontent.com/omeraltntass/altintas-teklif/103523d748e03762bea9d9b03159521e791661fd/masaustu.js",
+   "sha256": "058a2da39b7f32b2b5dea6a217b14005024964fd73e4d7aaa2ae0f825edf4e05"
   }
  ]
 }
