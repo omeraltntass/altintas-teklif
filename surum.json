@@ -1,15 +1,28 @@
 {
- "surum": "1.0.2",
- "tarih": "2026-10-22",
+ "surum": "1.1.0",
+ "tarih": "2026-10-23",
  "enAzKabuk": "1.0.0",
  "notlar": [
-  "Yeni altın A logosu: program, teklif ve sözleşme belgelerinde"
+  "Kütüphaneden birden çok madde işaretleyip tek seferde ekleme; Ctrl+Z ile geri al",
+  "Teklif şablonları, bölüm setleri ve müşteri hafızası: yeni teklif birkaç tıkla hazır",
+  "Excel'den yapıştırma, sürükle-bırak, seçenekli madde düzenleyicisi, fiyatsız sade görünüm",
+  "Göndermeden önce eksik bilgi kontrolü; PDF'ten sonra tek tıkla \"Gönderildi\"",
+  "Takip panosu: cevap bekleyen, süresi dolan teklifler ve geciken ödemeler; WhatsApp ile hatırlatma",
+  "Revizyonlar arası fark listesi; fiyatları kütüphaneden güncelleme ve kütüphanede toplu % zam",
+  "Ödeme planı şablonları ve tahsilat takibi; aylık özet ekranı",
+  "Tek teklifi dosya olarak başka bilgisayara taşıma; örnek teklifleri silme",
+  "Masaüstü: PDF'ler müşteri klasörüne kendiliğinden kaydedilir, bozuk veri dosyası yedekten geri yüklenir, son yedek tarihi ekranda (tam paket 1.1.0 ile)"
  ],
  "dosyalar": [
   {
    "yol": "teklif-programi.html",
-   "url": "https://raw.githubusercontent.com/omeraltntass/altintas-teklif/c0c25461b10894c95eb97e07d53a10b4f0c9ff36/teklif-programi.html",
-   "sha256": "bee32c7aab02affa29fcfe414d2dc25d67944f61ca4a94318784116d91f775f0"
+   "url": "https://raw.githubusercontent.com/omeraltntass/altintas-teklif/103523d748e03762bea9d9b03159521e791661fd/teklif-programi.html",
+   "sha256": "3e8c1c55bab56349add02623c01acf863ea564e9f8678aeaedede35aee695a1b"
+  },
+  {
+   "yol": "masaustu.js",
+   "url": "https://raw.githubusercontent.com/omeraltntass/altintas-teklif/103523d748e03762bea9d9b03159521e791661fd/masaustu.js",
+   "sha256": "058a2da39b7f32b2b5dea6a217b14005024964fd73e4d7aaa2ae0f825edf4e05"
   }
  ]
 }
